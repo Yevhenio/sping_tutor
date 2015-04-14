@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean name="subject" class="student.Subject">
+
+        <constructor-arg name="title" value="Math"/>
+        <constructor-arg name="hours" value="44"/>
+    </bean>
+    <bean name="student" class="student.Student" scope="prototype">
+        <constructor-arg name="name" value="Vasya"/>
+        <constructor-arg name="age" value="22"/>
+        <constructor-arg name="subject" value="subject"/>
+
+    </bean>
+    <bean name="studentLoader" class="methods.StudentLoader" init-method="loadStudents">
+
+    </bean>
+    <bean name="studentUtil" class="methods.StudentUtil" autowire="byType"></bean>
+    <bean name="studentWrite" class="methods.StudentWriter"></bean>
+
+</beans>
